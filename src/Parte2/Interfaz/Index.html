@@ -60,34 +60,34 @@
               </button>
             </td>
           </tr>
-          <tr>
+          <!--<tr>
             <td>Feedback</td>
             <td class="cell" data-cell-id="6">
-              <button class="add-btn" onclick="openFormActivity(this)">
+              <button class="add-btn" onclick="openFormFeedback(this)">
                 Agregar Evaluacion
               </button>
             </td>
             <td class="cell" data-cell-id="7">
-              <button class="add-btn" onclick="openFormActivity(this)">
+              <button class="add-btn" onclick="openFormFeedback(this)">
                 Agregar Evaluacion
               </button>
             </td>
             <td class="cell" data-cell-id="8">
-              <button class="add-btn" onclick="openFormActivity(this)">
+              <button class="add-btn" onclick="openFormFeedback(this)">
                 Agregar Evaluacion
               </button>
             </td>
             <td class="cell" data-cell-id="9">
-              <button class="add-btn" onclick="openFormActivity(this)">
+              <button class="add-btn" onclick="openFormFeedback(this)">
                 Agregar Evaluacion
               </button>
             </td>
             <td class="cell" data-cell-id="10">
-              <button class="add-btn" onclick="openFormActivity(this)">
+              <button class="add-btn" onclick="openFormFeedback(this)">
                 Agregar Evaluacion
               </button>
             </td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
       <div class="button-container">
@@ -96,6 +96,9 @@
         </button>
         <button class="btn btn-secondary" id="addArticuloButton">
           Agregar Artículo a competencia
+        </button>
+        <button class="btn btn-primary" id="addFeedbackButton">
+          Agregar Feedback
         </button>
       </div>
     </div>
@@ -178,6 +181,27 @@
         </div>
       </div>
     </div>
+        <!-- Formulario para agregar feedback -->
+        <div id="feedbackFormSection" class="form-section">
+          <div class="form-container">
+            <h2 class="activity-title">Agregar Devolucion</h2>
+            <label for="devolucion-texto">Devolucion:</label>
+            <input
+              type="text"
+              id="devolucion-texto"
+              placeholder="Escriba su devolucion"
+            />
+            <div class="action-buttons">
+              <button class="save-btn" id="saveFeedbackButton">
+                Guardar Competencia
+              </button>
+              <button class="cancel-btn" id="cancelFeedbackButton">
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+
     <!-- Formulario para agregar articulos a competencias -->
     <div id="articuloFormSection" class="form-section">
       <div class="form-container">

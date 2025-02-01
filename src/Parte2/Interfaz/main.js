@@ -1,6 +1,7 @@
 import { Actividad } from "../codigo/actividad.js";
 import { Competencia } from "../codigo/competencia.js";
 import { CompetenciaList } from "../codigo/competencialist.js";
+import { Feedback } from "../codigo/feedback.js";
 
 const competenciaList = new CompetenciaList();
 const newCompetencia = new Competencia("Holaa");
@@ -21,6 +22,8 @@ competenciaList.add(competencia2);
 
 window.openFormActivity = openFormActivity;
 window.updateArticulos = updateArticulos;
+//window.openFormFeedback = openFormFeedback;
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Obtener el elemento del select de competencias
@@ -28,6 +31,87 @@ document.addEventListener("DOMContentLoaded", function () {
   // Llenar el select con las opciones generadas por getCompetenciasOptions
   updateCompetenciasOptions();
 });
+/* 
+function openFormFeedback(button) {
+  const descripcionTextArea = document.getElementById("devolucion-texto");
+  descripcionTextArea.value = ""; // Limpiamos el campo de descripción
+  const cell = button.closest(".cell"); // Encontramos la celda donde se hizo clic
+  const formSection = document.getElementById("activityFormSection");
+  formSection.classList.add("show"); // Mostramos el formulario de los feedbacks
+
+  // Guardamos la celda seleccionada en el formulario usando un dato personalizado
+  formSection.dataset.selectedCell = cell.dataset.cellId; // Asignamos el id de la celda seleccionada
+}
+
+// Función para cancelar la actividad y cerrar el formulario
+document
+  .getElementById("cancelFeedbackButton")
+  .addEventListener("click", function () {
+    const formSection = document.getElementById("activityFormSection");
+    formSection.classList.remove("show"); // Ocultamos el formulario
+
+    // Aseguramos que la tabla vuelva a ser visible si estaba oculta
+    const tableContainer = document.getElementById("tableContainer");
+    if (tableContainer) {
+      tableContainer.style.display = "block"; // Volvemos a mostrar la tabla
+    }
+  });
+
+// Función para guardar la actividad y actualizar la celda con la información ingresada
+document.getElementById("saveFeedbackButton").addEventListener("click", function () {
+  // Obtenemos los datos que el usuario seleccionó en el formulario
+  const CompetenciaSelect = document.getElementById("competencia-select");
+  const articuloSelect = document.getElementById("articulo-select");
+  const tipoSelect = document.getElementById("tipo-select");
+  const descripcionTextArea = document.getElementById("descripcion");
+  if (CompetenciaSelect.value != "noValido") {
+    const formSection = document.getElementById("activityFormSection");
+    formSection.classList.remove("show"); // Ocultamos el formulario después de guardar
+
+    const Competencia = CompetenciaSelect.value;
+    const articulosSeleccionados = Array.from(
+      articuloSelect.selectedOptions,
+    ).map((option) => option.value);
+    const tipoActividad = tipoSelect.value;
+    const descripcion = descripcionTextArea.value;
+
+    // Creamos un objeto que representa la actividad con todos los datos seleccionados
+    const actividad = {
+      Competencia,
+      articulos: articulosSeleccionados,
+      tipo: tipoActividad,
+      descripcion: descripcion,
+    };
+
+    // Recuperamos el id de la celda que se seleccionó antes de abrir el formulario
+    const selectedCellId = formSection.dataset.selectedCell;
+    const cell = document.querySelector(`[data-cell-id="${selectedCellId}"]`);
+
+    // Creamos el HTML que se va a mostrar en la celda con la información de la actividad
+    const actividadInfoHTML = `
+          <div class="activity-info">
+              <strong>Competencia:</strong> ${Competencia} <br>
+              <strong>Artículos:</strong> ${articulosSeleccionados.join(", ")} <br>
+              <strong>Tipo de Actividad:</strong> ${tipoActividad} <br>
+              <strong>Descripción:</strong> ${descripcion} <br>
+              <button class="edit-btn" onclick="openFormActivity(this)">Editar actividad</button>
+          </div>
+      `;
+
+    // Reemplazamos el contenido de la celda seleccionada con la nueva actividad guardada
+    cell.innerHTML = actividadInfoHTML;
+
+    // Aseguramos que la tabla vuelva a ser visible si fue oculta durante la edición
+    const tableContainer = document.getElementById("tableContainer");
+    // Verificamos si el elemento tableContainer existe antes de intentar cambiar su estilo
+    if (tableContainer) {
+      tableContainer.style.display = "block"; // Solo si el elemento existe
+    }
+  } else {
+    console.error("Debe seleccionar una competencia");
+  }
+});
+*/
 // Función que se ejecuta cuando se hace clic en el botón "Agregar actividad"
 function openFormActivity(button) {
   const CompetenciaSelect = document.getElementById("competencia-select");
@@ -252,5 +336,59 @@ document
   .getElementById("cancelArticuloButton")
   .addEventListener("click", function () {
     const formSection = document.getElementById("articuloFormSection");
+    formSection.classList.remove("show"); // Ocultamos el formulario
+  });
+
+// Mostrar el formulario de agregar competencia
+document
+  .getElementById("addFeedbackButton")
+  .addEventListener("click", function () {
+    const formSection = document.getElementById("feedbackFormSection");
+    formSection.classList.add("show"); // Mostramos el formulario
+
+    // Opcional: vaciar campos del formulario antes de mostrarlo
+    document.getElementById("devolucion-texto").value = "";
+  });
+
+// Función para guardar una nueva competencia
+document
+  .getElementById("saveFeedbackButton")
+  .addEventListener("click", function () {
+    const textoParaLimpiar = document.getElementById("devolucion-texto");
+    //const articulosInputParaLimpiar = document.getElementById(
+      //"competencia-articulos",
+    //);
+    const devText = document.getElementById("devolucion-texto").value;
+    //const articulosInput = document.getElementById(
+    //  "competencia-articulos",
+    //).value;
+    /*const articulosArray = articulosInput
+      .split(",")
+      .map((articulo) => articulo.trim());*/
+
+    // Crear una nueva competencia
+    const nuevoFeedback = new Feedback(devText);
+    /*articulosArray.forEach((articulo) =>
+      nuevaCompetencia.addArticulo(articulo),
+    );
+
+    try {
+      competenciaList.add(nuevaCompetencia); // Agregar a la lista de competencias
+      console.log(`Competencia "${tituloComp}" añadida correctamente!`);
+    } catch (error) {
+      console.error(error.message);
+    }*/
+    textoParaLimpiar.value = "";
+    //articulosInputParaLimpiar.value = "";
+    // Cerrar formulario
+    const formSection = document.getElementById("feedbackFormSection");
+    formSection.classList.remove("show"); // Ocultamos el formulario
+  });
+
+// Función para cancelar el formulario y ocultarlo
+document
+  .getElementById("cancelFeedbackButton")
+  .addEventListener("click", function () {
+    const formSection = document.getElementById("feedbackFormSection");
     formSection.classList.remove("show"); // Ocultamos el formulario
   });
