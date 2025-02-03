@@ -1,6 +1,5 @@
 export class Feedback {
   devolucion;
-  //fecha;
 
   constructor(unaDevolucion) {
     this.devolucion = unaDevolucion;
