@@ -1,15 +1,17 @@
 export class Feedback {
-    devolucion;
-    //fecha
-  
-    constructor(unaDevolucion) {
-      this.devolucion = unaDevolucion;
-    }
-    getDevolucion() {
-      return this.devolucion;
-    }
-    esValida(aComparar) {
-      return aComparar == "noValido";
-    }
+  devolucion;
+  //fecha;
+
+  constructor(unaDevolucion) {
+    this.devolucion = unaDevolucion;
   }
-  
+  getDevolucion() {
+    return this.devolucion;
+  }
+  isValid() {
+    if (!this.devolucion || this.devolucion.trim() === "") {
+      throw new Error("El feedback no puede estar vacío");
+    }
+    return true;
+  }
+}

@@ -24,7 +24,6 @@ window.openFormActivity = openFormActivity;
 window.updateArticulos = updateArticulos;
 //window.openFormFeedback = openFormFeedback;
 
-
 document.addEventListener("DOMContentLoaded", function () {
   // Obtener el elemento del select de competencias
   const competenciaSelect = document.getElementById("competencia-select");
@@ -356,7 +355,7 @@ document
   .addEventListener("click", function () {
     const textoParaLimpiar = document.getElementById("devolucion-texto");
     //const articulosInputParaLimpiar = document.getElementById(
-      //"competencia-articulos",
+    //"competencia-articulos",
     //);
     const devText = document.getElementById("devolucion-texto").value;
     //const articulosInput = document.getElementById(

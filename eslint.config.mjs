@@ -19,7 +19,7 @@ export default [
         { max: 30 },
         { ignoreTopLevelFunctions: true },
       ],
-      "no-unused-vars": "off", 
+      "no-unused-vars": "off",
     },
   },
   eslintConfigPrettier,

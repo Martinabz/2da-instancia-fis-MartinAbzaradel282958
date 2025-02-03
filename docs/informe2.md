@@ -54,11 +54,15 @@ Se evaluará de acuerdo al grado de avance
 ## Test unitario
 
 ### Buenas prácticas
-Primero usamos el formateador de lint para mantener una estructura monotona y homogenea a traves del codigo, ademas de poder darnos cuentas de algunos errores o warnings que pudiesen saltar. 
+
+Primero usamos el formateador de lint para mantener una estructura monotona y homogenea a traves del codigo, ademas de poder darnos cuentas de algunos errores o warnings que pudiesen saltar.
 Usamos copilot para la creacion de los archivos .test.js.
+
 ### Informe de cobertura
-Al utilizar JEST para las pruebas unitarias junto con lint, pudimos confirmar que todas las funciones con sus branches de casos alternos funcionan de manera correcta y adecuada. 
+
+Al utilizar JEST para las pruebas unitarias junto con lint, pudimos confirmar que todas las funciones con sus branches de casos alternos funcionan de manera correcta y adecuada.
 En las pruebas establecidas tuvimos un coverage de 100% dando a entender un buen nivel de practicas unitarias.
+
 ## Reflexión
 
 ### Detalle del trabajo individual
@@ -68,4 +72,3 @@ Joaquin Larronda genero las pruebas e hizo la documentacion.
 Martin Abzaradel implemento el bootstrap en el codigo principal.
 
 ### Técnicas aplicadas y aprendizajes
-
